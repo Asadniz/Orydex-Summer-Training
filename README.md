@@ -74,7 +74,7 @@ your GitHub account. (The exact repository URL is shared in the channel — repl
 3. Track the original so you can sync new tasks:
 
    ```bash
-   git remote add upstream git@github.com:orydex/summer-training.git
+   git remote add upstream https://github.com/TeamOrydex/summer-training.git
    # later, to pull in newly added tasks:
    git fetch upstream
    git switch main
