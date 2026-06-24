@@ -145,6 +145,7 @@ limiting, or back a background task — to prove the service is actually connect
 
 **Video courses (YouTube)**
 
+- [Docker in 100 Seconds](https://www.youtube.com/watch?v=Gjnup-PuquQ) — Fireship; images, containers, and Dockerfiles in a nutshell before you dive in.
 - [Learn Docker in 1 Hour — Full Course for Beginners](https://www.youtube.com/watch?v=GFgJkfScVNU) — fast, practical overview.
 - [Docker Tutorial for Beginners (Full Course in 3 Hours)](https://www.youtube.com/watch?v=3c-iBn73dDE) — thorough fundamentals.
 - [Ultimate Docker Compose Tutorial](https://www.youtube.com/watch?v=SXwC9fSwct8) — Compose from zero to hero.
