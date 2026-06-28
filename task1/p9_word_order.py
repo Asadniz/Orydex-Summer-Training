@@ -19,7 +19,25 @@ def word_order(words: list[str]) -> tuple[int, list[int]]:
     """
     # TODO: Count occurrences while preserving first-appearance order,
     # then return (number_of_distinct_words, list_of_counts).
-    pass
+    lst = list(words)
+    result = list()
+    word_list = [None] * len(lst)
+    word_count = 0
+    ind = 0
+    for i in range (len(words)):
+        if words[i] in word_list:
+            continue
+        word_list.append(words[i])
+        count = 1
+        for j in range (i + 1, len(words)):
+            if words[i] == words[j]:
+                print ("index i is", i, "index j is", j)
+                print (words[i], " is in ", words[j])
+                count += 1
+        word_count += 1
+        result.append(count)
+        ind += 1
+    return (word_count, result)
 
 
 if __name__ == "__main__":
