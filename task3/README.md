@@ -138,6 +138,7 @@ uvicorn app.main:app --reload
 
 **Video courses (YouTube)**
 
+- [Build a REST API in 15 Minutes with FastAPI](https://www.youtube.com/watch?v=iWS9ogMPOI0) — short, build-along first API.
 - [Create an API in 20 minutes with FastAPI](https://www.youtube.com/watch?v=ICnKq9fgLrI) — quick taste of the framework.
 - [FastAPI — A Python Framework, Full Course (freeCodeCamp / Bitfumes)](https://www.youtube.com/watch?v=7t2alSnE2-I) — a solid end-to-end beginner course.
 - [Python API Development — Comprehensive Course (freeCodeCamp)](https://www.youtube.com/watch?v=Yw4LmMQXXFs) — deep dive (database, auth, tests, deploy).

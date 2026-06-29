@@ -62,6 +62,11 @@ By the end of this task you should understand and be able to use:
 - [Pro Git book](https://git-scm.com/book/en/v2) — free, official, and thorough. Chapters 2–3 cover everything in this task.
 - [Learn Git Branching](https://learngitbranching.js.org/) — interactive, visual practice for branch/merge/rebase.
 
+**Watch (short refreshers)**
+
+- [Git Explained in 100 Seconds](https://www.youtube.com/watch?v=hwP7WQkmECE) — Fireship; the whole mental model (repo, commit, branch, merge) in under two minutes.
+- [Git & GitHub Crash Course for Beginners](https://www.youtube.com/watch?v=SWYqp7iY_Tc) — Traversy Media; clone, branch, commit, push, and pull requests in ~30 minutes.
+
 **By topic**
 
 | Topic | Resource |
