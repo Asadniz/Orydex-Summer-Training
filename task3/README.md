@@ -55,14 +55,14 @@ the contract your tests (and any reviewer) will check against.
 
 **Patient**
 
-| Field | Type | Rules |
-| --- | --- | --- |
-| `id` | int | server-generated, read-only |
-| `name` | str | required, 1–100 chars |
-| `age` | int | required, 0–120 |
-| `condition` | str | required, non-empty |
-| `risk_score` | int | required, 0–100 |
-| `active` | bool | defaults to `true` |
+| Field        | Type | Rules                       |
+| ------------ | ---- | --------------------------- |
+| `id`         | int  | server-generated, read-only |
+| `name`       | str  | required, 1–100 chars       |
+| `age`        | int  | required, 0–120             |
+| `condition`  | str  | required, non-empty         |
+| `risk_score` | int  | required, 0–100             |
+| `active`     | bool | defaults to `true`          |
 
 Use separate Pydantic schemas: `PatientCreate` (no `id`), `PatientUpdate` (all
 fields optional, for `PATCH`), and `PatientRead` (includes `id`).
@@ -73,17 +73,17 @@ password (never store or return plain text). `UserRead` exposes only `id` and
 
 ### Endpoints
 
-| Method | Path | Auth | Success | Description |
-| --- | --- | --- | --- | --- |
-| `GET` | `/health` | — | 200 | `{"status": "ok"}` |
-| `POST` | `/auth/register` | — | 201 | Create a user from `{username, password}`; **409** if the username exists |
-| `POST` | `/auth/token` | — | 200 | OAuth2 password form → `{access_token, token_type: "bearer"}`; **401** on bad credentials |
-| `GET` | `/patients` | — | 200 | List patients; supports `?active=`, `?condition=`, `?limit=`, `?offset=` |
-| `GET` | `/patients/{id}` | — | 200 | One patient; **404** if missing |
-| `POST` | `/patients` | ✅ | 201 | Create a patient from `PatientCreate`; **422** on invalid data |
-| `PUT` | `/patients/{id}` | ✅ | 200 | Full replace; **404** if missing |
-| `PATCH` | `/patients/{id}` | ✅ | 200 | Partial update from `PatientUpdate`; **404** if missing |
-| `DELETE` | `/patients/{id}` | ✅ | 204 | Delete; **404** if missing |
+| Method   | Path             | Auth | Success | Description                                                                               |
+| -------- | ---------------- | ---- | ------- | ----------------------------------------------------------------------------------------- |
+| `GET`    | `/health`        | —    | 200     | `{"status": "ok"}`                                                                        |
+| `POST`   | `/auth/register` | —    | 201     | Create a user from `{username, password}`; **409** if the username exists                 |
+| `POST`   | `/auth/token`    | —    | 200     | OAuth2 password form → `{access_token, token_type: "bearer"}`; **401** on bad credentials |
+| `GET`    | `/patients`      | —    | 200     | List patients; supports `?active=`, `?condition=`, `?limit=`, `?offset=`                  |
+| `GET`    | `/patients/{id}` | —    | 200     | One patient; **404** if missing                                                           |
+| `POST`   | `/patients`      | ✅   | 201     | Create a patient from `PatientCreate`; **422** on invalid data                            |
+| `PUT`    | `/patients/{id}` | ✅   | 200     | Full replace; **404** if missing                                                          |
+| `PATCH`  | `/patients/{id}` | ✅   | 200     | Partial update from `PatientUpdate`; **404** if missing                                   |
+| `DELETE` | `/patients/{id}` | ✅   | 204     | Delete; **404** if missing                                                                |
 
 **Auth ✅** means the request must carry a valid JWT (`Authorization: Bearer
 <token>`); without it the API returns **401**.
@@ -145,22 +145,22 @@ uvicorn app.main:app --reload
 
 **By topic**
 
-| Topic | Resource |
-| --- | --- |
-| Path & query params | [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-params/) · [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-params/) |
-| Request bodies & models | [Request Body](https://fastapi.tiangolo.com/tutorial/body/) · [Pydantic v2 docs](https://docs.pydantic.dev/latest/) |
+| Topic                    | Resource                                                                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Path & query params      | [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-params/) · [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-params/)               |
+| Request bodies & models  | [Request Body](https://fastapi.tiangolo.com/tutorial/body/) · [Pydantic v2 docs](https://docs.pydantic.dev/latest/)                                           |
 | Response models & status | [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) · [Response Status Code](https://fastapi.tiangolo.com/tutorial/response-status-code/) |
-| Error handling | [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/) |
-| Project structure | [Bigger Applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/) |
-| Dependency injection | [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/) |
-| Databases | [SQLModel docs](https://sqlmodel.tiangolo.com/) · [FastAPI + SQL Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) |
-| Async | [Concurrency and async / await](https://fastapi.tiangolo.com/async/) |
-| Security (OAuth2 + JWT) | [Security tutorial](https://fastapi.tiangolo.com/tutorial/security/) · [OAuth2 with JWT](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/) |
-| Configuration | [Settings & environment variables](https://fastapi.tiangolo.com/advanced/settings/) |
-| Middleware & CORS | [Middleware](https://fastapi.tiangolo.com/tutorial/middleware/) · [CORS](https://fastapi.tiangolo.com/tutorial/cors/) |
-| Testing | [Testing](https://fastapi.tiangolo.com/tutorial/testing/) · [pytest](https://docs.pytest.org/) · [HTTPX](https://www.python-httpx.org/) |
-| Migrations | [Alembic docs](https://alembic.sqlalchemy.org/) |
-| Server | [Uvicorn](https://www.uvicorn.org/) |
+| Error handling           | [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/)                                                                                     |
+| Project structure        | [Bigger Applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/)                                                                             |
+| Dependency injection     | [Dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/)                                                                                           |
+| Databases                | [SQLModel docs](https://sqlmodel.tiangolo.com/) · [FastAPI + SQL Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)                             |
+| Async                    | [Concurrency and async / await](https://fastapi.tiangolo.com/async/)                                                                                          |
+| Security (OAuth2 + JWT)  | [Security tutorial](https://fastapi.tiangolo.com/tutorial/security/) · [OAuth2 with JWT](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/)          |
+| Configuration            | [Settings & environment variables](https://fastapi.tiangolo.com/advanced/settings/)                                                                           |
+| Middleware & CORS        | [Middleware](https://fastapi.tiangolo.com/tutorial/middleware/) · [CORS](https://fastapi.tiangolo.com/tutorial/cors/)                                         |
+| Testing                  | [Testing](https://fastapi.tiangolo.com/tutorial/testing/) · [pytest](https://docs.pytest.org/) · [HTTPX](https://www.python-httpx.org/)                       |
+| Migrations               | [Alembic docs](https://alembic.sqlalchemy.org/)                                                                                                               |
+| Server                   | [Uvicorn](https://www.uvicorn.org/)                                                                                                                           |
 
 **Reference & extra practice**
 
@@ -175,14 +175,14 @@ uvicorn app.main:app --reload
 Goal: a working, validated, documented API that serves patient data from an
 in-memory list.
 
-| Focus | Build |
-| --- | --- |
-| What is an API, HTTP, ASGI, uvicorn; the project & first `GET /` | A running app with `/` and `/health`; explore `/docs` |
-| Path & query parameters; type coercion & validation | `GET /patients` (with `?active=`, `?limit=`) and `GET /patients/{id}` |
-| Pydantic v2 models, request bodies, `response_model` | `Patient` / `PatientCreate` models; `POST /patients` |
-| Status codes & error handling (`HTTPException`) | 404 for missing patient; 201 on create; validation errors |
-| Update & delete; `PUT`/`PATCH` semantics | `PUT /patients/{id}`, `PATCH`, `DELETE /patients/{id}` |
-| Project structure: routers & `Depends`; OpenAPI tags & summaries | Split into `app/main.py` and `app/routers/patients.py`; tidy docs |
+| Focus                                                            | Build                                                                 |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------- |
+| What is an API, HTTP, ASGI, uvicorn; the project & first `GET /` | A running app with `/` and `/health`; explore `/docs`                 |
+| Path & query parameters; type coercion & validation              | `GET /patients` (with `?active=`, `?limit=`) and `GET /patients/{id}` |
+| Pydantic v2 models, request bodies, `response_model`             | `Patient` / `PatientCreate` models; `POST /patients`                  |
+| Status codes & error handling (`HTTPException`)                  | 404 for missing patient; 201 on create; validation errors             |
+| Update & delete; `PUT`/`PATCH` semantics                         | `PUT /patients/{id}`, `PATCH`, `DELETE /patients/{id}`                |
+| Project structure: routers & `Depends`; OpenAPI tags & summaries | Split into `app/main.py` and `app/routers/patients.py`; tidy docs     |
 
 **Reference — your first endpoint**
 
@@ -214,14 +214,14 @@ def health() -> dict[str, str]:
 Goal: persist data in a real database, secure the API, and prove it works with
 automated tests.
 
-| Focus | Build |
-| --- | --- |
-| SQLModel: engine, `Session`, table models; `Depends(get_session)` | SQLite database; `Patient` table model; DB-backed `get_session` dependency |
-| Move CRUD to the database; query patterns | Rewrite all patient endpoints to read/write the database |
-| `async` handlers; when async helps and when it doesn't | Make appropriate handlers `async`; understand the trade-offs |
-| OAuth2 password flow, JWT, password hashing (`passlib`) | `User` model, `POST /auth/register`, `POST /auth/token`, `get_current_user` |
-| Protect routes; config via `pydantic-settings` / env vars | Require auth for write endpoints; load `SECRET_KEY` from env |
-| Testing with `pytest` + `httpx`/`TestClient`; test DB fixture | A test suite covering CRUD, validation errors, and auth |
+| Focus                                                             | Build                                                                       |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| SQLModel: engine, `Session`, table models; `Depends(get_session)` | SQLite database; `Patient` table model; DB-backed `get_session` dependency  |
+| Move CRUD to the database; query patterns                         | Rewrite all patient endpoints to read/write the database                    |
+| `async` handlers; when async helps and when it doesn't            | Make appropriate handlers `async`; understand the trade-offs                |
+| OAuth2 password flow, JWT, password hashing (`passlib`)           | `User` model, `POST /auth/register`, `POST /auth/token`, `get_current_user` |
+| Protect routes; config via `pydantic-settings` / env vars         | Require auth for write endpoints; load `SECRET_KEY` from env                |
+| Testing with `pytest` + `httpx`/`TestClient`; test DB fixture     | A test suite covering CRUD, validation errors, and auth                     |
 
 **Reference — a protected endpoint**
 
@@ -253,13 +253,13 @@ def create_patient(
 
 Goal: take the API closer to something you could actually deploy.
 
-| Focus | Build |
-| --- | --- |
-| Alembic migrations | Initialize Alembic; generate and apply the first migration |
-| Pagination, filtering, sorting | `GET /patients?limit=&offset=&condition=&sort=` |
-| Background tasks & `lifespan` events | A background task (e.g. audit log) and startup/shutdown hooks |
-| Middleware, CORS, structured logging, request IDs | Logging middleware; CORS for a frontend origin |
-| OpenAPI polish | Descriptions, examples, versioning |
+| Focus                                             | Build                                                         |
+| ------------------------------------------------- | ------------------------------------------------------------- |
+| Alembic migrations                                | Initialize Alembic; generate and apply the first migration    |
+| Pagination, filtering, sorting                    | `GET /patients?limit=&offset=&condition=&sort=`               |
+| Background tasks & `lifespan` events              | A background task (e.g. audit log) and startup/shutdown hooks |
+| Middleware, CORS, structured logging, request IDs | Logging middleware; CORS for a frontend origin                |
+| OpenAPI polish                                    | Descriptions, examples, versioning                            |
 
 **Part 3 — Checkpoint**
 
