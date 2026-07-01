@@ -10,6 +10,9 @@ Then open the interactive docs at http://127.0.0.1:8000/docs
 """
 
 from fastapi import FastAPI
+from app.routers import patients, auth
+from app.models import patient, user
+from app.database import Base, engine, get_session
 
 app = FastAPI(
     title="Patient Management API",
@@ -17,6 +20,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
+Base.metadata.create_all(bind=engine)
 
 @app.get("/", tags=["meta"], summary="API root")
 def read_root() -> dict[str, str]:
@@ -24,12 +28,13 @@ def read_root() -> dict[str, str]:
     return {"message": "Patient Management API. See /docs for the interactive docs."}
 
 
-@app.get("/health", tags=["meta"], summary="Health check")
+@app.get("/health", tags=["meta"], summary="Health check", status_code=200)
 def health() -> dict[str, str]:
     """Return the service status. Useful for uptime checks."""
     return {"status": "ok"}
 
 
 # TODO: create app/routers/patients.py and register it here, e.g.
-#     from app.routers import patients
-#     app.include_router(patients.router)
+
+app.include_router(patients.router)
+app.include_router(auth.router)
