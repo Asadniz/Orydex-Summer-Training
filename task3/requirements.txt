@@ -7,12 +7,14 @@ pydantic
 pytest
 pytest-cov
 httpx
-
+sqlmodel
+pwdlib
+python-multipart
+pyjwt
+Migrations
+alembic
+python-dotenv
 # Database, config, and auth
 # pydantic-settings
-# sqlmodel
-# pyjwt
 # passlib[bcrypt]
 
-# Migrations
-# alembic
