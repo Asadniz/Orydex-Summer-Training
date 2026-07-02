@@ -15,11 +15,13 @@ secret_key = os.getenv("secret_key")
 algorithm = "HS256"
 token_expiry_seconds = 1800
 
+
 def create_access_token(username: str):
     to_encode = {"username": username}
     expire = datetime.now() + timedelta(seconds=token_expiry_seconds)
     to_encode["exp"] = expire
     return jwt.encode(to_encode, secret_key, algorithm=algorithm)
+
 
 def verify_token(token: str):
     try:
@@ -30,11 +32,14 @@ def verify_token(token: str):
         return username
     except jwt.PyJWTError:
         return None
-    
+
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
-def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_session)):
+
+def get_current_user(
+    token: str = Depends(oauth2_scheme), db: Session = Depends(get_session)
+):
     username = verify_token(token)
     if not username:
         raise HTTPException(status_code=401, detail="invalid or expired token")
