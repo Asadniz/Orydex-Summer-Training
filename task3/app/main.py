@@ -11,16 +11,32 @@ Then open the interactive docs at http://127.0.0.1:8000/docs
 
 from fastapi import FastAPI
 from app.routers import patients, auth
-from app.models import patient, user
-from app.database import Base, engine, get_session
+from app.database import Base, engine
+from contextlib import asynccontextmanager
+from fastapi.middleware.cors import CORSMiddleware
+from app.middleware import LoggingMiddleware
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="Patient Management API",
-    description="Training capstone for Task 3 (FastAPI).",
-    version="0.1.0",
+    description="""
+    A REST API for managing patients and their medical records.
+    
+    ## Features
+    - Patient CRUD operations
+    - JWT authentication
+    - Filtering and pagination
+    """,
+    version="1.0.0",
+    license_info={"name": "MIT"},
+    lifespan=lifespan,
 )
 
-Base.metadata.create_all(bind=engine)
 
 @app.get("/", tags=["meta"], summary="API root")
 def read_root() -> dict[str, str]:
@@ -34,7 +50,15 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-# TODO: create app/routers/patients.py and register it here, e.g.
-
 app.include_router(patients.router)
 app.include_router(auth.router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.add_middleware(LoggingMiddleware)
