@@ -6,14 +6,18 @@ uvicorn[standard]
 pydantic
 pytest
 pytest-cov
-httpx
+httpx2
 sqlmodel
+pwdlib[argon2]
 pwdlib
 python-multipart
 pyjwt
 Migrations
 alembic
 python-dotenv
+httpx 
+pytest-asyncio
+
 # Database, config, and auth
 # pydantic-settings
 # passlib[bcrypt]
