@@ -5,15 +5,14 @@ Complete this file without using AI tools.
 Use fake/sample data only.
 """
 
+from helper import b_sort
+
 patients = [
     {"id": 1, "name": "Ayesha Khan", "age": 32, "condition": "diabetes", "active": True},
     {"id": 2, "name": "Omar Ali", "age": 45, "condition": "hypertension", "active": True},
     {"id": 3, "name": "Sara Ahmed", "age": 28, "condition": "asthma", "active": False},
     {"id": 4, "name": "Bilal Malik", "age": 52, "condition": "diabetes", "active": True},
 ]
-
-from helper import b_sort
-
 
 def total_patients(patient_records):
     """Return the total number of patients."""
@@ -75,7 +74,7 @@ if __name__ == "__main__":
     print ("SUMMARY")
     print ("----------")
     print ("Patients: ")
-    
+
     for patient in patients:
         print (patient)
 

@@ -15,7 +15,6 @@ patients = [
     {"id": 4, "name": "Bilal Malik", "age": 52, "risk_score": 91, "active": True},
 ]
 
-from helper import b_sort
 
 
 def label_risk(risk_score: int) -> str:
@@ -35,7 +34,7 @@ def add_risk_labels(patient_records: list[dict]) -> list[dict]:
     patient_records_copy = [None] * len(patient_records)
     for i in range (len(patient_records)):
         patient_records_copy[i] = dict(patient_records[i])
-            
+
     for patient in patient_records_copy:
         patient["risk_label"] = label_risk(patient["risk_score"])
     return patient_records_copy
@@ -44,7 +43,9 @@ def add_risk_labels(patient_records: list[dict]) -> list[dict]:
 def build_triage_report(patient_records: list[dict]) -> dict:
     """Build a triage report from patient records."""
     # TODO: Build and return final report.
-    report = {"summary": {}, "risk_counts": {"low": 0, "medium": 0, "high": 0}, "active_high_risk_patients": []}
+    report = {"summary": {},
+              "risk_counts": {"low": 0,"medium": 0, "high": 0},
+              "active_high_risk_patients": []}
 
     report["summary"]["total_patients"] = len(patient_records)
     risk_labelled_report = add_risk_labels(patient_records)

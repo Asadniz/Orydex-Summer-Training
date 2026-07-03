@@ -6,9 +6,9 @@ HackerRank: https://www.hackerrank.com/challenges/find-second-maximum-number-in-
 Adapted as a function so it can be tested automatically.
 """
 
-sample_scores = [2, 3, 6, 6, 5]
-
 from helper import b_sort
+
+sample_scores = [2, 3, 6, 6, 5]
 
 def find_runner_up(scores: list[int]) -> int:
     """Return the runner-up score: the second highest *distinct* value.
@@ -20,7 +20,7 @@ def find_runner_up(scores: list[int]) -> int:
         return -1
     if (len(scores)) == 1:
         return scores[0]
-    
+
     lst = []
     for num in scores:
         if num not in lst:

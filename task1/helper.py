@@ -1,4 +1,7 @@
+"""Helper functions for patient data processing."""
+
 def b_sort(lst, key = None, reverse = False):
+    """Sort a list using bubble sort algorithm."""
     if key:
         if reverse:
             for i in range (len(lst)):
@@ -32,6 +35,7 @@ def b_sort(lst, key = None, reverse = False):
                             lst[j] = temp
 
 def uppercase(string):
+    """Convert a string to uppercase."""
     new_string = ""
     for character in string:
         ascii_value = ord(character)

@@ -5,13 +5,13 @@ Practice reusable functions, type hints, and lambda functions.
 Complete this file without using AI tools.
 """
 
+from helper import b_sort
+
 patients = [
     {"name": "ayesha khan", "height_m": 1.65, "weight_kg": 68, "active": True},
     {"name": "omar ali", "height_m": 1.78, "weight_kg": 82, "active": False},
     {"name": "sara ahmed", "height_m": 1.60, "weight_kg": 54, "active": True},
 ]
-
-from helper import b_sort
 
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
     """Calculate BMI."""
@@ -40,7 +40,7 @@ def format_name(name: str) -> str:
 
     for character in name:
         ascii_value = ord(character)
-        
+
         if ascii_value == 32:
             formatted_name += character
             capital_flag = True
@@ -49,7 +49,7 @@ def format_name(name: str) -> str:
         if ascii_value < 65 or ascii_value > 122 or (ascii_value > 90 and ascii_value < 97):
             print (ascii_value)
             return "INVALID NAME"
-        
+
         if capital_flag:
             if ascii_value > 90:
                 ascii_value -= 32
@@ -61,14 +61,14 @@ def format_name(name: str) -> str:
         formatted_name += chr(ascii_value)
 
     return formatted_name
-    
+
 
 
 def get_active_patients(patient_records: list[dict]) -> list[dict]:
     """Return active patients only."""
     # TODO: Filter active patients.
-    return [patient for patient in patient_records if patient["active"] == True]
-    
+    return [patient for patient in patient_records if patient["active"]]
+
 
 
 def sort_patients_by_weight(patient_records: list[dict]) -> list[dict]:

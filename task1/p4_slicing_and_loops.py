@@ -5,10 +5,10 @@ Practice slicing, loops, enumerate, zip, and comprehensions.
 Complete this file without using AI tools.
 """
 
+from helper import uppercase
+
 patient_ids = [101, 102, 103, 104, 105, 106, 107]
 patient_names = ["Ayesha", "Omar", "Sara", "Bilal", "Hina", "Usman", "Maha"]
-
-from helper import uppercase
 
 def slicing_examples():
     """Return examples of list slicing."""

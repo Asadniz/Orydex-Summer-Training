@@ -36,10 +36,10 @@ def minion_game(word: str) -> str:
             p2 += word_length - i
     if p1 > p2:
         return "Kevin " + str(p1)
-    
+
     if p2 > p1:
         return "Stuart " + str(p2)
-    
+
     return "Draw"
 
 
