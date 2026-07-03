@@ -16,7 +16,7 @@ def find_runner_up(scores: list[int]) -> int:
     Example: [2, 3, 6, 6, 5] -> 5 (6 is the highest, 5 is the runner-up).
     """
     # TODO: Remove duplicate scores, then return the second largest value.
-    if (len(scores)) == 0:
+    if len(scores) == 0:
         return -1
     if (len(scores)) == 1:
         return scores[0]
@@ -25,9 +25,9 @@ def find_runner_up(scores: list[int]) -> int:
     for num in scores:
         if num not in lst:
             lst.append(num)
-    print (lst, "\n")
+    print(lst, "\n")
     b_sort(lst)
-    print (lst, "\n")
+    print(lst, "\n")
     return lst[-2]
 
 

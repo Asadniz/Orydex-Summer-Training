@@ -29,7 +29,7 @@ def minion_game(word: str) -> str:
     p1 = 0
     p2 = 0
     word_length = len(word)
-    for i in range (word_length):
+    for i in range(word_length):
         if word[i] in VOWELS:
             p1 += word_length - i
         else:
