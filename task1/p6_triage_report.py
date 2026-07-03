@@ -16,7 +16,6 @@ patients = [
 ]
 
 
-
 def label_risk(risk_score: int) -> str:
     """Return low, medium, or high based on risk score."""
     # TODO: Define thresholds and return label.
@@ -32,7 +31,7 @@ def add_risk_labels(patient_records: list[dict]) -> list[dict]:
     """Return copies of patient records with a risk_label field added."""
     # TODO: Add risk labels without modifying original records.
     patient_records_copy = [None] * len(patient_records)
-    for i in range (len(patient_records)):
+    for i in range(len(patient_records)):
         patient_records_copy[i] = dict(patient_records[i])
 
     for patient in patient_records_copy:
@@ -43,18 +42,20 @@ def add_risk_labels(patient_records: list[dict]) -> list[dict]:
 def build_triage_report(patient_records: list[dict]) -> dict:
     """Build a triage report from patient records."""
     # TODO: Build and return final report.
-    report = {"summary": {},
-              "risk_counts": {"low": 0,"medium": 0, "high": 0},
-              "active_high_risk_patients": []}
+    report = {
+        "summary": {},
+        "risk_counts": {"low": 0, "medium": 0, "high": 0},
+        "active_high_risk_patients": [],
+    }
 
     report["summary"]["total_patients"] = len(patient_records)
     risk_labelled_report = add_risk_labels(patient_records)
 
-    for i in range (len(risk_labelled_report)):
+    for i in range(len(risk_labelled_report)):
         risk_label = risk_labelled_report[i]["risk_label"]
         report["risk_counts"][risk_label] += 1
         if risk_label == "high" and risk_labelled_report[i]["active"]:
-            report["active_high_risk_patients"].append (risk_labelled_report[i])
+            report["active_high_risk_patients"].append(risk_labelled_report[i])
 
     return report
 

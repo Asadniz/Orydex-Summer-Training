@@ -26,7 +26,7 @@ def get_patient_city(patient_id):
     # TODO: Safely return the city.
     if patient_id in patients.keys():
         city = (patients[patient_id]).get("contact")["city"]
-        print ("Registered city for Patient ID ", patient_id, " is ", city)
+        print("Registered city for Patient ID ", patient_id, " is ", city)
         return city
     print("ERROR: ID not found")
 
@@ -36,8 +36,9 @@ def update_patient_condition(patient_id, new_condition):
     # TODO: Update the condition for the patient.
     temp = patients[patient_id].get("condition")
     (patients[patient_id])["condition"] = new_condition
-    print("Updated condition of patient with id ",
-          patient_id, " from ", temp, " to ", new_condition)
+    print(
+        "Updated condition of patient with id ", patient_id, " from ", temp, " to ", new_condition
+    )
 
 
 def build_patient_summary():

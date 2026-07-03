@@ -12,6 +12,7 @@ sample_conditions = ["diabetes", "asthma", "hypertension"]
 primary_conditions = {"diabetes", "asthma", "hypertension"}
 follow_up_conditions = {"asthma", "cardiac", "diabetes"}
 
+
 def list_operations(conditions: list[str]) -> list[str]:
     """Return a new, sorted list after adding and removing a condition.
 
@@ -32,7 +33,6 @@ def list_operations(conditions: list[str]) -> list[str]:
     return temp
 
 
-
 def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]]:
     """Return common, all-unique, and primary-only conditions.
 
@@ -42,7 +42,7 @@ def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]
     - "only_primary": conditions in primary but not in follow_up
     """
     # TODO: Build and return the dictionary described above.
-    results = {"common": set(), "all_unique": set() , "only_primary": set()}
+    results = {"common": set(), "all_unique": set(), "only_primary": set()}
     for condition in primary:
         if condition in follow_up:
             results["common"].add(condition)
@@ -51,11 +51,11 @@ def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]
 
         results["all_unique"].add(condition)
 
-
     for condition in follow_up:
         results["all_unique"].add(condition)
 
     return results
+
 
 if __name__ == "__main__":
     print(list_operations(sample_conditions))

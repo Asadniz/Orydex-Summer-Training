@@ -13,6 +13,7 @@ patients = [
     {"name": "sara ahmed", "height_m": 1.60, "weight_kg": 54, "active": True},
 ]
 
+
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
     """Calculate BMI."""
     # TODO: Implement BMI formula.
@@ -47,7 +48,7 @@ def format_name(name: str) -> str:
             continue
 
         if ascii_value < 65 or ascii_value > 122 or (ascii_value > 90 and ascii_value < 97):
-            print (ascii_value)
+            print(ascii_value)
             return "INVALID NAME"
 
         if capital_flag:
@@ -63,19 +64,17 @@ def format_name(name: str) -> str:
     return formatted_name
 
 
-
 def get_active_patients(patient_records: list[dict]) -> list[dict]:
     """Return active patients only."""
     # TODO: Filter active patients.
     return [patient for patient in patient_records if patient["active"]]
 
 
-
 def sort_patients_by_weight(patient_records: list[dict]) -> list[dict]:
     """Return patients sorted by weight using a lambda."""
     # TODO: Sort patients by weight_kg.
     lst = patient_records.copy()
-    b_sort(lst, key = lambda x : x["weight_kg"])
+    b_sort(lst, key=lambda x: x["weight_kg"])
     return lst
 
 
@@ -86,9 +85,9 @@ if __name__ == "__main__":
     classification = classify_bmi(bmi)
     active_patients = get_active_patients(patients)
     weight_sorted = sort_patients_by_weight(patients)
-    print ("----------")
-    print ("BMI: ", bmi)
-    print ("BMI Range: ", classification)
-    print ("Active Patients: ", active_patients)
-    print ("Patients by Weight: ", weight_sorted)
-    print ("----------")
+    print("----------")
+    print("BMI: ", bmi)
+    print("BMI Range: ", classification)
+    print("Active Patients: ", active_patients)
+    print("Patients by Weight: ", weight_sorted)
+    print("----------")

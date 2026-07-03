@@ -10,11 +10,12 @@ from helper import uppercase
 patient_ids = [101, 102, 103, 104, 105, 106, 107]
 patient_names = ["Ayesha", "Omar", "Sara", "Bilal", "Hina", "Usman", "Maha"]
 
+
 def slicing_examples():
     """Return examples of list slicing."""
     # TODO: Return first three IDs, last three IDs, and reversed IDs.
     new_lst = [patient_ids[0:3], patient_ids[-3:], patient_ids[::-1]]
-    print ("Slicing: ", new_lst)
+    print("Slicing: ", new_lst)
     return new_lst
 
 
@@ -24,9 +25,9 @@ def loop_examples():
     # TODO: Use zip to pair IDs with names.
     enum = enumerate(patient_names)
     id_name_pairs = zip(range(len(patient_ids)), patient_ids, patient_names)
-    print ("Enumerate: ", list(enum))
-    print ("Zip: ", list(id_name_pairs))
-    return(enum, id_name_pairs)
+    print("Enumerate: ", list(enum))
+    print("Zip: ", list(id_name_pairs))
+    return (enum, id_name_pairs)
 
 
 def comprehension_examples():

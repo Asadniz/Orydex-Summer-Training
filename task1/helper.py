@@ -1,17 +1,18 @@
 """Helper functions for patient data processing."""
 
-def b_sort(lst, key = None, reverse = False):
+
+def b_sort(lst, key=None, reverse=False):
     """Sort a list using bubble sort algorithm."""
     if key:
         if reverse:
-            for i in range (len(lst)):
+            for i in range(len(lst)):
                 for j in range(i + 1, len(lst)):
                     if key(lst[i]) < key(lst[j]):
                         temp = lst[i]
                         lst[i] = lst[j]
                         lst[j] = temp
         else:
-            for i in range (len(lst)):
+            for i in range(len(lst)):
                 for j in range(i + 1, len(lst)):
                     if key(lst[i]) > key(lst[j]):
                         temp = lst[i]
@@ -20,19 +21,20 @@ def b_sort(lst, key = None, reverse = False):
 
     else:
         if reverse:
-            for i in range (len(lst)):
-                    for j in range(i + 1, len(lst)):
-                        if lst[i] < lst[j]:
-                            temp = lst[i]
-                            lst[i] = lst[j]
-                            lst[j] = temp
+            for i in range(len(lst)):
+                for j in range(i + 1, len(lst)):
+                    if lst[i] < lst[j]:
+                        temp = lst[i]
+                        lst[i] = lst[j]
+                        lst[j] = temp
         else:
-            for i in range (len(lst)):
-                    for j in range(i + 1, len(lst)):
-                        if lst[i] > lst[j]:
-                            temp = lst[i]
-                            lst[i] = lst[j]
-                            lst[j] = temp
+            for i in range(len(lst)):
+                for j in range(i + 1, len(lst)):
+                    if lst[i] > lst[j]:
+                        temp = lst[i]
+                        lst[i] = lst[j]
+                        lst[j] = temp
+
 
 def uppercase(string):
     """Convert a string to uppercase."""

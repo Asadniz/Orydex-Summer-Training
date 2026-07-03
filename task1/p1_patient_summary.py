@@ -14,6 +14,7 @@ patients = [
     {"id": 4, "name": "Bilal Malik", "age": 52, "condition": "diabetes", "active": True},
 ]
 
+
 def total_patients(patient_records):
     """Return the total number of patients."""
     # TODO: Implement this function.
@@ -29,7 +30,7 @@ def average_age(patient_records):
     age_sum = 0
     for patient in patient_records:
         age_sum += patient["age"]
-    return (age_sum/total_patients(patient_records))
+    return age_sum / total_patients(patient_records)
 
 
 def count_active_patients(patient_records):
@@ -68,19 +69,18 @@ def count_by_condition(patient_records):
     return patients_by_condition
 
 
-
 if __name__ == "__main__":
     # TODO: Print the summary results clearly.
-    print ("SUMMARY")
-    print ("----------")
-    print ("Patients: ")
+    print("SUMMARY")
+    print("----------")
+    print("Patients: ")
 
     for patient in patients:
-        print (patient)
+        print(patient)
 
-    print ("Total patients: ", total_patients(patients))
-    print ("Average Age: ", average_age(patients))
-    print ("Active Patients: ", count_active_patients(patients))
-    print ("Unique Conditions: ", unique_conditions(patients))
-    print ("Patients by Conditions: ", count_by_condition(patients))
-    print ("----------")
+    print("Total patients: ", total_patients(patients))
+    print("Average Age: ", average_age(patients))
+    print("Active Patients: ", count_active_patients(patients))
+    print("Unique Conditions: ", unique_conditions(patients))
+    print("Patients by Conditions: ", count_by_condition(patients))
+    print("----------")
