@@ -25,9 +25,7 @@ def get_patient_city(patient_id):
     """Return the city for a given patient ID."""
     # TODO: Safely return the city.
     if patient_id in patients.keys():
-        city = (patients[patient_id]).get("contact")["city"]
-        print("Registered city for Patient ID ", patient_id, " is ", city)
-        return city
+        return (patients[patient_id])["contact"]["city"]
     print("ERROR: ID not found")
 
 

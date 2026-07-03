@@ -23,14 +23,14 @@ def calculate_bmi(weight_kg: float, height_m: float) -> float:
 def classify_bmi(bmi: float) -> str:
     """Return BMI category."""
     # TODO: Return underweight, normal, overweight, or obese.
-    if bmi < 18.5:
-        return "underweight"
-    if bmi >= 18.5 and bmi < 25:
-        return "normal"
-    if bmi >= 25 and bmi < 30:
-        return "overweight"
     if bmi >= 30:
         return "obese"
+    if bmi >= 25 and bmi < 30:
+        return "overweight"
+    if bmi >= 18.5 and bmi < 25:
+        return "normal"
+    else:
+        return "underweight"
 
 
 def format_name(name: str) -> str:
