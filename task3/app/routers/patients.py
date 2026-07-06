@@ -59,7 +59,6 @@ def get_patient_from_id(id: int, db: Session = Depends(get_session)):
         raise HTTPException(status_code=404, detail="Patient not found")
     return patient
 
-
 @router.post(
     "/",
     response_model=PatientRead,
