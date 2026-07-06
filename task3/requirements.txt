@@ -17,6 +17,7 @@ alembic
 python-dotenv
 httpx 
 pytest-asyncio
+psycopg[binary]
 
 # Database, config, and auth
 # pydantic-settings

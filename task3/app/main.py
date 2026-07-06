@@ -20,6 +20,8 @@ from app.middleware import LoggingMiddleware
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
+    yield
+    print("shutting down")
 
 
 app = FastAPI(
