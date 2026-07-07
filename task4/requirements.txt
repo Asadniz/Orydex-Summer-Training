@@ -1,0 +1,25 @@
+# Patient Management API — dependencies
+# Start minimal; uncomment/add the rest as you build each part.
+
+fastapi
+uvicorn[standard]
+pydantic
+pytest
+pytest-cov
+httpx2
+sqlmodel
+pwdlib[argon2]
+pwdlib
+python-multipart
+pyjwt
+Migrations
+alembic
+python-dotenv
+httpx 
+pytest-asyncio
+psycopg[binary]
+
+# Database, config, and auth
+# pydantic-settings
+# passlib[bcrypt]
+

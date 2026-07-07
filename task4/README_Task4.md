@@ -91,11 +91,11 @@ Keep the image small and clean — exclude `.venv/`, `__pycache__/`, `.git/`,
 
 Define at least these services:
 
-| Service | Image / build | Notes |
-| --- | --- | --- |
-| `api` | build from your `Dockerfile` | exposes the app port; reads env vars; `depends_on` db and redis |
-| `db` | `postgres:16` (or similar) | sets `POSTGRES_*` env; persists data in a **named volume** |
-| `redis` | `redis:7` (or similar) | for caching / rate limiting / background work |
+| Service | Image / build                | Notes                                                           |
+| ------- | ---------------------------- | --------------------------------------------------------------- |
+| `api`   | build from your `Dockerfile` | exposes the app port; reads env vars; `depends_on` db and redis |
+| `db`    | `postgres:16` (or similar)   | sets `POSTGRES_*` env; persists data in a **named volume**      |
+| `redis` | `redis:7` (or similar)       | for caching / rate limiting / background work                   |
 
 Your Compose file must include:
 
@@ -153,15 +153,15 @@ limiting, or back a background task — to prove the service is actually connect
 
 **By topic**
 
-| Topic | Resource |
-| --- | --- |
-| Writing a Dockerfile | [Dockerfile reference](https://docs.docker.com/reference/dockerfile/) · [Best practices](https://docs.docker.com/build/building/best-practices/) |
-| FastAPI in containers | [FastAPI in Containers — Docker](https://fastapi.tiangolo.com/deployment/docker/) |
-| `.dockerignore` | [Docker build context](https://docs.docker.com/build/concepts/context/#dockerignore-files) |
-| PostgreSQL image | [`postgres` on Docker Hub](https://hub.docker.com/_/postgres) |
-| Redis image | [`redis` on Docker Hub](https://hub.docker.com/_/redis) |
-| Volumes | [Docker volumes](https://docs.docker.com/storage/volumes/) |
-| Healthchecks | [Compose `healthcheck`](https://docs.docker.com/reference/compose-file/services/#healthcheck) |
+| Topic                 | Resource                                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Writing a Dockerfile  | [Dockerfile reference](https://docs.docker.com/reference/dockerfile/) · [Best practices](https://docs.docker.com/build/building/best-practices/) |
+| FastAPI in containers | [FastAPI in Containers — Docker](https://fastapi.tiangolo.com/deployment/docker/)                                                                |
+| `.dockerignore`       | [Docker build context](https://docs.docker.com/build/concepts/context/#dockerignore-files)                                                       |
+| PostgreSQL image      | [`postgres` on Docker Hub](https://hub.docker.com/_/postgres)                                                                                    |
+| Redis image           | [`redis` on Docker Hub](https://hub.docker.com/_/redis)                                                                                          |
+| Volumes               | [Docker volumes](https://docs.docker.com/storage/volumes/)                                                                                       |
+| Healthchecks          | [Compose `healthcheck`](https://docs.docker.com/reference/compose-file/services/#healthcheck)                                                    |
 
 ## Submission Checklist
 
