@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.fixture
 def get_token(client):
     client.post("/auth/register", json={"username": "asad", "password": "password123"})
     response = client.post(
@@ -5,7 +8,7 @@ def get_token(client):
     )
     return response.json()["access_token"]
 
-
+@pytest.fixture
 def auth_headers(client):
     token = get_token(client)
     return {"Authorization": f"Bearer {token}"}
