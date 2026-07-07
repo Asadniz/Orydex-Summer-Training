@@ -9,9 +9,8 @@ def get_token(client):
     return response.json()["access_token"]
 
 @pytest.fixture
-def auth_headers(client):
-    token = get_token(client)
-    return {"Authorization": f"Bearer {token}"}
+def auth_headers(get_token):
+    return {"Authorization": f"Bearer {get_token}"}
 
 
 def test_create_patient(client):
