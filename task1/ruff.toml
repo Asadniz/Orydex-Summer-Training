@@ -1,0 +1,35 @@
+# Lenient style checks for the Task 1 training exercise.
+#
+# The goal is to teach clean, readable Python — not to overwhelm students with
+# nitpicks. We check formatting, imports, docstrings, and the most common PEP 8
+# and likely-bug rules, and turn off the pedantic ones.
+#
+# Run it yourself from the repo root:
+#     ruff check task1          # report style issues
+#     ruff check task1 --fix    # auto-fix what it safely can
+#     ruff format task1         # auto-format the code
+
+line-length = 100
+target-version = "py313"
+
+[lint]
+select = [
+    "E",   # pycodestyle errors (PEP 8)
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes: unused imports/variables, likely bugs
+    "I",   # import ordering
+    "UP",  # pyupgrade: prefer modern Python syntax
+    "D",   # pydocstyle: docstrings
+]
+ignore = [
+    "D212",  # multi-line summary on the first line — allow the header style
+    "D415",  # docstring must end with punctuation — too strict for trainees
+    "D401",  # "first line should be imperative" — too strict for trainees
+]
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.per-file-ignores]
+# Tests are graders, not exercises — don't require docstrings there.
+"tests/**" = ["D"]
