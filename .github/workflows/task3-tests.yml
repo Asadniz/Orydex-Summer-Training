@@ -37,4 +37,5 @@ jobs:
       - name: Run tests with coverage (must be > 98%)
         env:
           database_url: "sqlite:///./database.db"
+          secret_key: "nosecretkey"
         run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98

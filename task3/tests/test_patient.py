@@ -23,7 +23,7 @@ def test_create_patient(client):
             "risk_score": 50,
             "active": True,
         },
-        headers=auth_headers(client),
+        headers=auth_headers,
     )
     assert response.status_code == 201
     assert response.json()["name"] == "John Doe"
@@ -50,7 +50,7 @@ def test_get_patients(client):
 
 
 def test_get_patient_by_id(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     create = client.post(
         "/patients/",
         json={
@@ -74,7 +74,7 @@ def test_get_patient_not_found(client):
 
 
 def test_update_patient(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     create = client.post(
         "/patients/",
         json={
@@ -103,7 +103,7 @@ def test_update_patient(client):
 
 
 def test_delete_patient(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     create = client.post(
         "/patients/",
         json={
@@ -130,13 +130,13 @@ def test_validation_error(client):
             "risk_score": 50,
             "active": True,
         },
-        headers=auth_headers(client),
+        headers=auth_headers,
     )
     assert response.status_code == 422
 
 
 def test_get_patients_filter_active(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     client.post(
         "/patients/",
         json={
@@ -154,7 +154,7 @@ def test_get_patients_filter_active(client):
 
 
 def test_get_patients_filter_condition(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     client.post(
         "/patients/",
         json={
@@ -172,7 +172,7 @@ def test_get_patients_filter_condition(client):
 
 
 def test_get_patients_sort_asc(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     client.post(
         "/patients/",
         json={
@@ -200,7 +200,7 @@ def test_get_patients_sort_asc(client):
 
 
 def test_get_patients_sort_desc(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     client.post(
         "/patients/",
         json={
@@ -228,7 +228,7 @@ def test_get_patients_sort_desc(client):
 
 
 def test_get_patients_pagination(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     for i in range(5):
         client.post(
             "/patients/",
@@ -247,7 +247,7 @@ def test_get_patients_pagination(client):
 
 
 def test_update_patient_not_found(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.put(
         "/patients/999",
         json={
@@ -263,7 +263,7 @@ def test_update_patient_not_found(client):
 
 
 def test_patch_patient(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     create = client.post(
         "/patients/",
         json={
@@ -284,19 +284,19 @@ def test_patch_patient(client):
 
 
 def test_patch_patient_not_found(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.patch("/patients/999", json={"name": "Jane"}, headers=headers)
     assert response.status_code == 404
 
 
 def test_delete_patient_not_found(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.delete("/patients/999", headers=headers)
     assert response.status_code == 404
 
 
 def test_validation_age_out_of_range(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.post(
         "/patients/",
         json={
@@ -312,7 +312,7 @@ def test_validation_age_out_of_range(client):
 
 
 def test_validation_missing_name(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.post(
         "/patients/",
         json={"age": 30, "condition": "diabetes", "risk_score": 50, "active": True},
@@ -322,7 +322,7 @@ def test_validation_missing_name(client):
 
 
 def test_validation_risk_score_out_of_range(client):
-    headers = auth_headers(client)
+    headers = auth_headers
     response = client.post(
         "/patients/",
         json={
