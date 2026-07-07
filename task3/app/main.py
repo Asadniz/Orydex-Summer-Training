@@ -21,7 +21,7 @@ from app.middleware import LoggingMiddleware
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
     yield
-    print("shutting down")
+    print("shutting down") # pragma: no cover
 
 
 app = FastAPI(

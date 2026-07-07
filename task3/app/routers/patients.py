@@ -124,7 +124,6 @@ def partial_update_patient(
     db: Session = Depends(get_session),
 ):
 
-    print("partially updating data of patient id ", id, "!")
     patient = db.query(Patient).filter(Patient.id == id).first()
     if not patient:
         raise HTTPException(status_code=404, detail="patient not found")

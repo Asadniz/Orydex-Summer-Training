@@ -28,7 +28,7 @@ class PatientPatch(BaseModel):
     age: Optional[int] = Field(None, ge=0, le=120)
     condition: Optional[str] = Field(None, min_length=1)
     risk_score: Optional[int] = Field(None, ge=0, le=100)
-    active: Optional[bool]
+    active: Optional[bool] = Field(None)
     model_config = {
         "json_schema_extra":{
             "example":{

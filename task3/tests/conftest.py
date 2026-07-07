@@ -35,3 +35,14 @@ def client():
     app.dependency_overrides[get_session] = override_get_db
     yield TestClient(app)
     app.dependency_overrides.clear()
+
+
+def test_get_session():
+    from app.database import get_session
+    gen = get_session()
+    db = next(gen)
+    assert db is not None
+    try:
+        next(gen)
+    except StopIteration:
+        pass
