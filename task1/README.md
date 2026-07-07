@@ -56,11 +56,6 @@ tutorial, then use the topic links to fill specific gaps.
 
 - [The Python Tutorial](https://docs.python.org/3/tutorial/) — the official, beginner-to-intermediate walkthrough.
 
-**Watch (short refreshers)**
-
-- [Python in 100 Seconds](https://www.youtube.com/watch?v=x7X9w_GIm1s) — Fireship; a 2-minute reminder of what Python is and why it looks the way it does.
-- [Python for Beginners — Learn Python in 1 Hour](https://www.youtube.com/watch?v=kqtD5dpn9C8) — Programming with Mosh; a fast, complete pass over the fundamentals this task revises.
-
 **By topic**
 
 | Topic | Resource |
