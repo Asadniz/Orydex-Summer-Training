@@ -16,7 +16,6 @@ jobs:
       (github.event_name == 'push') ||
       startsWith(github.head_ref, 'task3/')
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: task3
@@ -37,3 +36,9 @@ jobs:
 
       - name: Run tests with coverage (must be > 98%)
         run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98
+
+      - name: Create .env for testing
+        run: |
+          echo "DATABASE_URL=sqlite:///./test.db" >> .env
+          echo "SECRET_KEY=test_secret_key_for_ci" >> .env
+          echo "ALGORITHM=HS256" >> .env
