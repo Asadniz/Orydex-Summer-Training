@@ -16,7 +16,6 @@ jobs:
       (github.event_name == 'push') ||
       startsWith(github.head_ref, 'task3/')
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: task3
@@ -36,4 +35,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests with coverage (must be > 98%)
+        env:
+          database_url: "sqlite:///./database.db"
+          secret_key: "nosecretkey"
         run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98

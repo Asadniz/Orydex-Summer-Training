@@ -23,3 +23,9 @@ def test_root_responds():
     response = client.get("/")
     assert response.status_code == 200
     assert "message" in response.json()
+
+def test_lifespan(client):
+    response = client.get("/health")
+    assert response.status_code == 200
+
+    
