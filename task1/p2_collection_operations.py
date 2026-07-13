@@ -5,6 +5,8 @@ Practice lists, tuples, and sets.
 Complete this file without using AI tools.
 """
 
+from helper import b_sort
+
 # Sample data — do not edit.
 sample_conditions = ["diabetes", "asthma", "hypertension"]
 primary_conditions = {"diabetes", "asthma", "hypertension"}
@@ -21,7 +23,14 @@ def list_operations(conditions: list[str]) -> list[str]:
     - Return the list sorted alphabetically.
     """
     # TODO: Implement the steps described above.
-    pass
+    temp = []
+    for condition in conditions:
+        temp.append(condition)
+
+    temp.append("cardiac")
+    temp.remove("asthma")
+    b_sort(temp)
+    return temp
 
 
 def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]]:
@@ -33,7 +42,19 @@ def set_operations(primary: set[str], follow_up: set[str]) -> dict[str, set[str]
     - "only_primary": conditions in primary but not in follow_up
     """
     # TODO: Build and return the dictionary described above.
-    pass
+    results = {"common": set(), "all_unique": set(), "only_primary": set()}
+    for condition in primary:
+        if condition in follow_up:
+            results["common"].add(condition)
+        else:
+            results["only_primary"].add(condition)
+
+        results["all_unique"].add(condition)
+
+    for condition in follow_up:
+        results["all_unique"].add(condition)
+
+    return results
 
 
 if __name__ == "__main__":
